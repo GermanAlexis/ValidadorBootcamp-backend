@@ -1,7 +1,7 @@
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
+import { envs } from 'src/config/envs/environment-config';
 import { AssessmentEntity } from 'src/models/assessment/assessment.entity';
-import { envs } from 'src/types/environment-config';
 
 @Injectable()
 export class AssessmentsClient {

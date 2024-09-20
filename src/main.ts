@@ -1,19 +1,15 @@
 import { NestFactory } from '@nestjs/core';
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { Logger } from '@nestjs/common';
 import { AppModule } from './modules/app.module';
+import { SwaggerConfig } from './config/swagger/swagger.config';
+import { envs } from './config/envs/environment-config';
 
 async function bootstrap() {
+  const logger = new Logger('Main');
   const app = await NestFactory.create(AppModule);
   app.enableCors();
-  const config = new DocumentBuilder()
-    .addBasicAuth() //TODO: addBasicAuthOptions
-    .addBearerAuth() //TODO: addBearerAuthOptions
-    .setTitle('GlassCamp')
-    .setDescription('Validador de bootcamps')
-    .setVersion('1.0')
-    .build();
-  const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
-  await app.listen(3000);
+  SwaggerConfig.setup(app)
+  await app.listen(envs.PORT);
+  logger.log(`App running in port ${envs.PORT}`);
 }
 bootstrap();

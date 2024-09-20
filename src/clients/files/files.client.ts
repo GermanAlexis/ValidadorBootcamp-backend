@@ -2,7 +2,7 @@ import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
 import * as FormData from 'form-data';
-import { envs } from 'src/types/environment-config';
+import { envs } from 'src/config/envs/environment-config';
 
 @Injectable()
 export class FilesClient {

@@ -1,7 +1,7 @@
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
+import { envs } from 'src/config/envs/environment-config';
 import { BootcampEntity } from 'src/models/bootcamp/bootcamp.entity';
-import { envs } from 'src/types/environment-config';
 
 @Injectable()
 export class BootcampsClient {

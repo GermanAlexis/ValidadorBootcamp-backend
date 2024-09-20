@@ -1,6 +1,6 @@
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
-import { envs } from 'src/types/environment-config';
+import { envs } from 'src/config/envs/environment-config';
 
 @Injectable()
 export class ReviewsClient {
